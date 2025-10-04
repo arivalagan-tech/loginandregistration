@@ -1,0 +1,366 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  margin: 0;
+  padding: 0;
+  background-image: url(../Images/Sign\ Up.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-section {
+  display: flex;
+  justify-content: space-evenly;
+  /* padding-top: 132px; */
+  /* align-items: center; */
+}
+
+.headingSize {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 700;
+  font-size: 39px;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  vertical-align: bottom;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.headingSec1 {
+  margin-bottom: 152px;
+}
+.paraSize {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.16px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  padding-bottom: 48px;
+}
+
+.separator-container1 {
+  max-width: 133.5px;
+  max-height: 2px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.separator-line1 {
+  width: 48px;
+  height: 2px;
+  border: 5px solid #ffffff;
+  flex-basis: 45%;
+}
+.separator-line2 {
+  width: 32px;
+  height: 2px;
+  border: 2px solid #9e9e9e;
+  flex-basis: 32%;
+}
+.separator-line3 {
+  width: 48px;
+  height: 2px;
+  border: 2px solid #9e9e9e;
+  flex-basis: 32%;
+}
+
+.headingSec2 {
+  width: 100%;
+  max-width: 380px;
+}
+.headerTitleSize {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 22.53px;
+  letter-spacing: 0px;
+  color: #000000;
+}
+.headerTitleSize2 {
+  font-family: Zen Kaku Gothic Antique;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 44px;
+  letter-spacing: 0px;
+  color: #000000;
+  margin-bottom: 24.5px;
+}
+.signUpPage2 {
+  width: 100%;
+  max-width: 460px;
+  background-color: #fafafa;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: 132px;
+}
+.headerSec {
+  width: 100%;
+  max-width: 204px;
+}
+.inputNameSize {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 22.53px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #757575;
+}
+.inputEmailSize {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 22.53px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #757575;
+}
+.inputPasswordSize {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 22.53px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #757575;
+}
+
+.inputNameSize1 {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.16px;
+  letter-spacing: 0px;
+  color: #757575;
+  background-color: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  width: 100%;
+  max-width: 380px;
+  height: 56px;
+  padding: 0px 14px;
+}
+.inputEmailSize2 {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.16px;
+  letter-spacing: 0px;
+  color: #424242;
+  background-color: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  width: 100%;
+  max-width: 380px;
+  height: 56px;
+  padding: 0px 14px;
+}
+.inputPasswordSize3 {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.16px;
+  letter-spacing: 0px;
+  color: #757575;
+  background-color: #fafafa;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 380px;
+  height: 56px;
+  padding: 0px 14px;
+}
+.placeholder {
+  margin-left: 16px;
+}
+.insideStartBtn {
+  width: 100%;
+  max-width: 380px;
+  height: 56px;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 700;
+  font-size: 12.8px;
+  line-height: 22.53px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffffff;
+  background-color: #212121;
+  border-radius: 8px;
+  border: 1px solid #212121;
+  cursor: pointer;
+}
+/* .formSec {
+  width: 100%;
+  max-width: 380px;
+} */
+
+.inputBox {
+  width: 100%;
+  max-width: 380px;
+  height: 67px;
+  position: relative;
+  margin-bottom: 9px;
+  transition: 0.5s;
+}
+.inputBox input {
+  outline: none;
+}
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 15px;
+  transition: 0.5s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+  color: #424242;
+  transform: translateX(12px) translateY(-12px);
+  font-size: 12.8px;
+  padding: 0 15px;
+  background: #fafafa;
+}
+.inputBox input:valid,
+.inputBox input:focus {
+  border: 1px solid #424242;
+  color: #424242;
+}
+.signUpInnerPage1 {
+  padding-top: 39.5px;
+  padding-left: 40px;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 11px;
+  top: 19px;
+}
+
+.separator-text {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 700;
+  font-size: 12.8px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+  white-space: nowrap;
+  color: #212121;
+}
+
+.separator-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+.separator-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+.separator-lines {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ccc;
+  margin-right: 39.5px;
+}
+
+.signUp-G,
+.signUp-F,
+.signUp-A {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 22.53px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+  color: #616161;
+}
+.mainSignUp-G,
+.mainSignUp-F,
+.mainSignUp-A {
+  max-width: 380px;
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: 2px solid #eeeeee;
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.img-GSize {
+  margin-right: 287px;
+  position: absolute;
+}
+.img-FSize {
+  margin-right: 287px;
+  position: absolute;
+}
+.img-ASize {
+  margin-right: 287px;
+  position: absolute;
+}
+
+.footerParaSize {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #212121;
+}
+.footerParaSize2 {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 700;
+  font-size: 12.8px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-style: 3px solid #212121;
+  text-decoration-offset: 0%;
+  text-decoration-thickness: 0%;
+}
+.footerSec {
+  margin: 48.5px;
+}
+
+.signUpPage1 {
+  margin-top: 216px;
+}
+
+
+/* Hidden-Eye  */
+
+/* ensure wrapper has relative position */
+.passwordWrapper { position: relative; }
+
+/* style for the eye button — tweak to match your design */
+.eyeToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;         /* icon color */
+  background: transparent;
+  border: none;
+}
+
+/* optional: hover state */
+.eyeToggleBtn:hover { color: #0060df; }
