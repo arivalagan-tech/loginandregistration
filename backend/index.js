@@ -37,7 +37,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 
 // root
-app.get("/", (req, res) => res.send("Node-Mongo Auth API"));
+app.get("/", (req, res) => res.send("ssNode-Mongo Auth API "));
 
 // error middleware (basic)
 app.use((err, req, res, next) => {
