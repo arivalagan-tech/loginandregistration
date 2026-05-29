@@ -54,7 +54,7 @@ function Login() {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://loginandregistration-rd3v.onrender.com/api/auth/login",
         formData,
         {
           headers: { "Content-Type": "application/json" },
@@ -62,8 +62,8 @@ function Login() {
           timeout: 2000,
         },
         setTimeout(() => {
-          window.location.href = "http://localhost:5173/history";
-        }, 2000)
+          window.location.href = "/history";
+        }, 2000),
       );
 
       if (data) {
@@ -87,7 +87,7 @@ function Login() {
       console.error("axios error", err);
       if (err.response) {
         setServerError(
-          err.response.data?.message || `Server ${err.response.status}`
+          err.response.data?.message || `Server ${err.response.status}`,
         );
       } else if (err.request) {
         setServerError("No response from server (network or CORS issue)");

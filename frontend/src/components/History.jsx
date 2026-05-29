@@ -68,7 +68,7 @@ export default function History() {
 
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/auth/profile",
+          "https://loginandregistration-rd3v.onrender.com/api/auth/profile",
           {
             headers: {
               "Content-Type": "application/json",
@@ -76,7 +76,7 @@ export default function History() {
             },
             withCredentials: true,
             timeout: 10000,
-          }
+          },
         );
 
         // Ensure it's an array for mapping

@@ -52,13 +52,13 @@ function Register() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://loginandregistration-rd3v.onrender.com/api/auth/register",
         formData,
         {
           // withCredentials: true, // if cookies needed
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
-        }
+        },
       );
 
       setFormData({ name: "", dob: "", email: "", password: "" });
@@ -70,7 +70,7 @@ function Register() {
       // axios gives more detail (err.response, err.request)
       if (err.response) {
         throw new Error(
-          err.response.data?.message || `Server ${err.response.status}`
+          err.response.data?.message || `Server ${err.response.status}`,
         );
       } else if (err.request) {
         throw new Error("No response from server (network or CORS issue)");
