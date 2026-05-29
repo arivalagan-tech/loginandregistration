@@ -61,9 +61,9 @@ function Login() {
           withCredentials: true,
           timeout: 2000,
         },
-        setTimeout(() => {
-          window.location.href = "/history";
-        }, 2000),
+        // setTimeout(() => {
+        //   window.location.href = "/history";
+        // }, 2000),
       );
 
       if (data) {
@@ -75,6 +75,7 @@ function Login() {
         if (data.user) {
           localStorage.setItem("loggedUser", JSON.stringify(data.user));
         }
+        window.location.href = "/history";
       }
 
       setFormData({ email: "", password: "" });
