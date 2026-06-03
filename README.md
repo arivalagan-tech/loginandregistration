@@ -2,8 +2,8 @@
 A decoupled, secure full-stack authentication portal built with **React**, **Node.js**, **Express**, and **MongoDB Atlas**. Designed with modern fluid layouts, mobile-first responsiveness, stateless authentication, and enterprise-grade security boundaries.
 ---
 ## 🌐 Production Deployments
-*   **Frontend Client (Vercel):** [https://loginandregistration-one.vercel.app/](https://loginandregistration-one.vercel.app/)
-*   **Backend REST API (Render):** [https://loginandregistration-rd3v.onrender.com/](https://loginandregistration-rd3v.onrender.com/)
+*   **Frontend Client (Vercel):** [loginandregistration.vercel.app](https://loginandregistration-fok9.vercel.app/)
+*   **Backend REST API (Render):** [loginandregistration.onrender.com](https://loginandregistration-rd3v.onrender.com/)
 *   **Source Repository:** [arivalagan-tech/loginandregistration](https://github.com/arivalagan-tech/loginandregistration)
 ---
 ## 📁 Project Directory Structure
