@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from "react";
 
 import "../css/Login.css";
@@ -6,7 +5,6 @@ import Q_Img2 from "../Images/Q-img.webp";
 import googleIcon from "../Images/icons8-google.png";
 import facebookIcon from "../Images/icons8-facebook.png";
 import appleIcon from "../Images/apple.png";
-import { toast } from "react-toastify";
 
 // remove the old eye import if you want to use inline SVG toggle
 // import eye from "../Images/eye.png";
@@ -20,7 +18,6 @@ function Login() {
   });
 
   const [errors, setErrors] = useState({});
-  const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
 
   // new state to toggle password visibility
@@ -30,7 +27,6 @@ function Login() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
-    setServerError("");
   };
 
   const validate = () => {
@@ -42,7 +38,6 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setServerError("");
 
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -86,17 +81,6 @@ function Login() {
     } catch (err) {
       alert("Invalid credentials");
       console.error("axios error", err);
-      if (err.response) {
-        setServerError(
-          err.response.data?.message || `Server ${err.response.status}`,
-        );
-      } else if (err.request) {
-        setServerError("No response from server (network or CORS issue)");
-      } else if (err.code === "ECONNABORTED") {
-        setServerError("Request timed out");
-      } else {
-        setServerError(err.message || "Unknown error");
-      }
     } finally {
       setLoading(false);
     }
@@ -154,7 +138,7 @@ function Login() {
                       Email ID
                     </span>
                     {errors.email && (
-                      <div style={{ color: "red" }}>{errors.email}</div>
+                      <div className="error-message">{errors.email}</div>
                     )}
                   </div>
 
@@ -187,7 +171,7 @@ function Login() {
                       style={{
                         position: "absolute",
                         right: 12,
-                        top: "50%",
+                        top: "28px",
                         transform: "translateY(-50%)",
                         background: "transparent",
                         border: "none",
@@ -264,7 +248,7 @@ function Login() {
                     </button>
 
                     {errors.password && (
-                      <div style={{ color: "red" }}>{errors.password}</div>
+                      <div className="error-message">{errors.password}</div>
                     )}
                   </div>
 

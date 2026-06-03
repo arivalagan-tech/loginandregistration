@@ -1,3 +1,4 @@
+/* Reset & Base Styles */
 *,
 *::before,
 *::after {
@@ -15,12 +16,12 @@
   --success: #22c55e;
   --danger: #ff6b6b;
   --glass: rgba(255, 255, 255, 0.03);
-  --radius: 12px;
+  --radius: 16px;
   --pad: 18px;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", Arial;
 }
-html,
+
 body {
   height: 100%;
   margin: 0;
@@ -31,43 +32,46 @@ body {
 }
 
 .wrap {
+  width: 100%;
   max-width: 1100px;
-  margin: 36px auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 0 20px;
 }
 
+/* Header & Controls */
 .topbar {
   display: flex;
+  flex-direction: column; /* Mobile first */
   gap: 16px;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
 .brand {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
 }
-.logo {
-  width: 54px;
-  height: 54px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.18);
-  font-weight: 700;
-  color: white;
-  font-size: 18px;
+
+.brand-icon {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
 .title {
-  line-height: 1;
+  line-height: 1.2;
 }
+
 .title h1 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
 }
+
 .title p {
   margin: 0;
   color: var(--muted);
@@ -77,86 +81,91 @@ body {
 
 .controls {
   display: flex;
+  width: 100%;
+}
+
+.search {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: #ffffff;
+  width: 100%;
+  display: flex;
   gap: 10px;
   align-items: center;
+  transition: all 0.25s ease;
 }
-.search {
-  background: var(--glass);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  padding: 10px 12px;
-  border-radius: 10px;
-  color: inherit;
-  min-width: 260px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
+
+.search:focus-within {
+  border-color: var(--accent-2);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
 }
+
 .search input {
   border: 0;
   background: transparent;
-  color: inherit;
+  color: #ffffff;
   outline: none;
-  font-size: 14px;
+  font-size: 14.5px;
+  width: 100%;
 }
 
+.search input::placeholder {
+  color: #6c7a89;
+}
+
+/* Card Wrapper */
 .card {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.03),
     rgba(255, 255, 255, 0.01)
   );
   border-radius: var(--radius);
-  padding: 14px;
-  box-shadow: 0 8px 30px rgba(3, 6, 20, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  box-shadow: 0 10px 35px rgba(2, 4, 15, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .table-wrap {
-  overflow: auto;
-  margin-top: 12px;
-  border-radius: 10px;
+  width: 100%;
 }
 
+/* Desktop Table Styles */
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 980px;
-  font-size: 14px;
+  font-size: 14.5px;
+  text-align: left;
 }
 
 thead tr {
-  text-align: left;
   color: var(--muted);
-  font-size: 13px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 thead th {
-  padding: 12px 14px;
-  position: sticky;
-  top: 0;
-  background: transparent;
-  z-index: 2;
+  padding: 14px 16px;
   font-weight: 600;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
+
 tbody tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-  transition: background 0.18s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background 0.2s ease;
 }
+
 tbody tr:hover {
   background: rgba(255, 255, 255, 0.02);
 }
-td {
-  padding: 14px;
-  vertical-align: middle;
-  color: #cfe6ff;
-}
 
-.date-size {
-  font-size: small;
-}
-.font-size {
-  font-weight: 700;
+td {
+  padding: 16px;
+  vertical-align: middle;
   color: #cfe6ff;
 }
 
@@ -165,129 +174,246 @@ td {
   gap: 12px;
   align-items: center;
 }
+
 .avatar {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 8px;
   background: linear-gradient(135deg, #3b82f6, #7c5cff);
   display: grid;
   place-items: center;
   font-weight: 700;
   color: white;
-  box-shadow: 0 6px 18px rgba(12, 20, 40, 0.6);
-}
-.small {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 3px;
+  box-shadow: 0 4px 12px rgba(12, 20, 40, 0.4);
 }
 
+/* Status Badges */
 .badge {
   display: inline-flex;
-  padding: 8px 10px;
+  padding: 6px 12px;
   border-radius: 999px;
   font-weight: 600;
   font-size: 12px;
   align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
 }
+
 .badge.success {
   background: rgba(34, 197, 94, 0.12);
   color: var(--success);
-  border: 1px solid rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
 }
-.badge.failed {
-  background: rgba(255, 107, 107, 0.08);
-  color: var(--danger);
-  border: 1px solid rgba(255, 107, 107, 0.06);
-}
+
 .badge.Inactive {
   background: rgba(243, 171, 83, 0.12);
   color: #f3ab53;
-  border: 1px solid rgba(243, 171, 83, 0.08);
+  border: 1px solid rgba(243, 171, 83, 0.2);
 }
 
 .muted {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 13.5px;
 }
 
+/* Table Actions & Buttons */
 .actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   justify-content: flex-end;
 }
+
 .btn {
   padding: 8px 12px;
-  border-radius: 10px;
-  border: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(255, 255, 255, 0.03);
   color: var(--muted);
   cursor: pointer;
-  font-weight: 600;
-}
-.btn.primary {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: white;
-  box-shadow: 0 8px 30px rgba(124, 92, 255, 0.12);
-}
-.pill {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  min-height: 44px; /* WCAG touch target */
+  min-width: 44px; /* WCAG touch target */
 }
 
-/* responsive */
-@media (max-width: 900px) {
-  .search {
-    min-width: 140px;
-  }
-  .wrap {
-    padding: 12px;
-  }
-  thead th:nth-child(3),
-  td:nth-child(3),
-  thead th:nth-child(5),
-  td:nth-child(5),
-  thead th:nth-child(7),
-  td:nth-child(7) {
-    display: none;
-  }
-  table {
-    min-width: 720px;
-  }
+.btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-/* small subtle footer */
-.hint {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 13px;
-  text-align: right;
+.btn:active {
+  transform: translateY(0);
 }
 
-/* pagination Btn */
+.setting-icon,
+.user-cancel-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
 
+.btn:hover .setting-icon,
+.btn:hover .user-cancel-icon {
+  opacity: 1;
+}
+
+/* Pagination Control Styling */
 .pagination {
-  padding-top: 8px;
+  padding-top: 24px;
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
 }
+
 .pagination a {
-  color: black;
-  float: left;
+  color: #cfe6ff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
   text-decoration: none;
-  transition: background-color 0.3s;
-  /* background-color:#4c78f8; */
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  min-height: 44px; /* accessibility touch target */
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pagination a.active {
-  background-color: dodgerblue;
+  background: var(--accent);
   color: white;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(124, 92, 255, 0.35);
+  font-weight: 700;
 }
 
 .pagination a:hover:not(.active) {
-  background-color: #ddd;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+/* Responsive Styles */
+
+/* Medium tablet & larger screens */
+@media (min-width: 768px) {
+  .topbar {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .controls {
+    width: auto;
+  }
+  
+  .search {
+    width: 320px;
+  }
+  
+  .pagination {
+    justify-content: flex-end;
+  }
+}
+
+/* Card view implementation under 768px */
+@media (max-width: 767px) {
+  /* Remove default table structures */
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; /* Hide headings on mobile */
+  }
+
+  tbody tr {
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  td {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    min-height: 48px;
+  }
+
+  td:last-child {
+    border-bottom: 0;
+    padding-bottom: 4px;
+  }
+
+  /* Inject data-label dynamically using content attr */
+  td[data-label]::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-right: 16px;
+  }
+
+  .usercell {
+    justify-content: flex-end;
+    width: auto;
+  }
+
+  .actions {
+    justify-content: flex-end;
+  }
+}
+
+/* Extra small mobile fixes (< 375px) */
+@media (max-width: 374px) {
+  .wrap {
+    padding: 0 12px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+
+  .title h1 {
+    font-size: 17px;
+  }
+
+  .title p {
+    font-size: 11px;
+  }
+
+  .pagination a {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 38px;
+    min-height: 38px;
+  }
 }

@@ -5,7 +5,6 @@ import Q_Img from "../Images/Q-image.webp";
 import googleIcon from "../Images/icons8-google.png";
 import facebookIcon from "../Images/icons8-facebook.png";
 import appleIcon from "../Images/apple.png";
-import bridge from "../Images/apple.png";
 // import eye from "../Images/eye.png";
 
 import { Link } from "react-router-dom";
@@ -19,7 +18,7 @@ function Register() {
     password: "",
   });
 
-  const [errors, setErrors] = useState({}); // store validation errors
+  const [errors] = useState({}); // store validation errors
 
   // new state to toggle password visibility
   const [showPassword, setShowPassword] = useState(false);
@@ -29,14 +28,6 @@ function Register() {
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const validate = () => {
-    let newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Required";
-    if (!formData.dob.trim()) newErrors.dob = "Required";
-    if (!formData.email.trim()) newErrors.email = "Required";
-    return newErrors;
   };
 
   const handleSubmit = async (e) => {
@@ -110,7 +101,7 @@ function Register() {
   };
 
   return (
-    <main>
+    <main className="register-page">
       <div className="container">
         <section className="main-section">
           <div className="signUpPage1">
@@ -166,6 +157,7 @@ function Register() {
                       value={formData.dob}
                       onChange={handleChange}
                     />
+                    <span className="inputPasswordSize">Date of Birth</span>
                   </div>
 
                   <div className="inputBox">
@@ -210,7 +202,7 @@ function Register() {
                       style={{
                         position: "absolute",
                         right: 12,
-                        top: "50%",
+                        top: "28px",
                         transform: "translateY(-50%)",
                         background: "transparent",
                         border: "none",
@@ -287,7 +279,7 @@ function Register() {
                     </button>
 
                     {errors.password && (
-                      <div style={{ color: "red" }}>{errors.password}</div>
+                      <div className="error-message">{errors.password}</div>
                     )}
                   </div>
 

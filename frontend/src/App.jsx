@@ -2,7 +2,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
+  NavLink,
   Navigate,
 } from "react-router-dom";
 import Login from "./components/Login";
@@ -22,44 +22,57 @@ function App() {
 
   return (
     <Router>
-      <div style={{ padding: "20px" }}>
-        <nav
-          style={{
-            marginBottom: "20px",
-            background: "white",
-            padding: "20px",
-          }}
-        >
-          <Link to="/" style={{ marginRight: "10px" }}>
-            Login
-          </Link>
-          <Link to="/register" style={{ marginRight: "10px" }}>
-            Register
-          </Link>
-          {isAuthenticated() && (
-            <>
-              <Link to="/history" style={{ marginRight: "10px" }}>
-                History
-              </Link>
-              <button onClick={logout}>Logout</button>
-            </>
-          )}
+      <div className="app-container">
+        <nav className="navbar">
+          <NavLink to="/" className="nav-brand">
+            <span className="nav-brand-dot"></span>
+            Quantum IT Portal
+          </NavLink>
+          <div className="nav-links">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/register"
+              className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+            >
+              Register
+            </NavLink>
+            {isAuthenticated() && (
+              <>
+                <NavLink
+                  to="/history"
+                  className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+                >
+                  History
+                </NavLink>
+                <button onClick={logout} className="nav-btn-logout">
+                  Logout
+                </button>
+              </>
+            )}
+          </div>
         </nav>
 
-        <Routes>
-          
-          <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Login />} />
-          <Route
-            path="/history"
-            element={
-              <RequireAuth>
-                <History />
-              </RequireAuth>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <main className="app-content">
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Login />} />
+            <Route
+              path="/history"
+              element={
+                <RequireAuth>
+                  <History />
+                </RequireAuth>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </main>
       </div>
     </Router>
   );

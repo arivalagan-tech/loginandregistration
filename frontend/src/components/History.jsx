@@ -1,60 +1,34 @@
-// File: src/components/History.jsx
 import React, { useEffect, useState } from "react";
 
 import "../css/history.css";
 
-import image3 from "../Images/user3.jpeg";
-import image1 from "../Images/user1.jpg";
 import image2 from "../Images/user2.jpg";
-import image4 from "../Images/user4.jpeg";
-import image5 from "../Images/user5.jpeg";
 import timeimage from "../Images/time_1759335.png";
 import securityimage from "../Images/icons8-security.png";
 import deleteimage from "../Images/icons8-delete-user-male-96.png";
 import axios from "axios";
 
-const initialData = [
-  {
-    id: 1,
-    name: "Michael Johnson",
-    avatar: image3,
-    date: "04/10/2013",
-    role: "Admin",
-    status: "Active",
-  },
-  {
-    id: 2,
-    name: "Meena",
-    avatar: image4,
-    date: "05/08/2014",
-    role: "Publisher",
-    status: "Active",
-  },
-  {
-    id: 3,
-    name: "John Smith",
-    avatar: image5,
-    date: "11/05/2015",
-    role: "Publisher",
-    status: "Suspended",
-  },
-  {
-    id: 4,
-    name: "Raghav",
-    avatar: image1,
-    date: "06/09/2016",
-    role: "Technical Support",
-    status: "Active",
-  },
-  {
-    id: 5,
-    name: "Priya",
-    avatar: image2,
-    date: "12/08/2017",
-    role: "Database Administrator",
-    status: "Inactive",
-  },
-];
+const formatDate = (dateString) => {
+  if (!dateString) return "N/A";
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return dateString;
+    return date.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  } catch {
+    return dateString;
+  }
+};
+
+const formatId = (id) => {
+  if (!id) return "";
+  return id.length > 8 ? `${id.substring(0, 8)}...` : id;
+};
 
 export default function History() {
   const [query, setQuery] = useState("");
@@ -83,7 +57,6 @@ export default function History() {
         setProfileData(Array.isArray(data) ? data : [data]);
       } catch (err) {
         console.error("Fetch error:", err);
-      } finally {
       }
     };
 
@@ -139,7 +112,7 @@ export default function History() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by name, email, IP or device (static)"
+              placeholder="Search history (static)..."
               aria-label="Search user history"
             />
           </div>
@@ -163,13 +136,13 @@ export default function History() {
               {profileData.length > 0 ? (
                 profileData.map((user, index) => (
                   <tr key={index}>
-                    <td>{user.user._id || index + 1}</td>
-                    <td>
+                    <td data-label="#">{formatId(user.user._id) || index + 1}</td>
+                    <td data-label="Name">
                       <div className="usercell">
                         <img
                           className="avatar"
                           src={image2}
-                          alt={`${user.user.createdAt} avatar`}
+                          alt={`${user.user.name} avatar`}
                           width={50}
                           height={50}
                         />
@@ -180,18 +153,18 @@ export default function History() {
                         </div>
                       </div>
                     </td>
-                    <td>{user.user.createdAt}</td>
-                    <td className="muted">Admin</td>
-                    <td>
+                    <td data-label="Date Created">{formatDate(user.user.createdAt)}</td>
+                    <td data-label="Role" className="muted">Admin</td>
+                    <td data-label="Status">
                       <span
-                        className={
-                          user.status === "Active" ? "Success" : "Inactive"
-                        }
+                        className={`badge ${
+                          user.status === "Active" ? "success" : "Inactive"
+                        }`}
                       >
-                        {user.status}
+                        {user.status || "Active"}
                       </span>
                     </td>
-                    <td className="actions">
+                    <td data-label="Actions" className="actions">
                       <button
                         type="button"
                         className="btn"
